@@ -1,0 +1,18 @@
+## Ignore arquivos de build e do VS
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+## Ignore pacotes
+packages/
+*.nupkg
+
+## Outros
+*.log
+*.db
+*.sdf
+*.sqlite
+*.vspscc
+*.vssscc
