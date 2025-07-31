@@ -11,7 +11,6 @@ namespace CategoriasMvc.Services
 
         private readonly JsonSerializerOptions _options;
         private readonly IHttpClientFactory _clientFactory;
-
         private CategoriaViewModel categoriaVM;
         private IEnumerable<CategoriaViewModel> categoriasVM;
 
