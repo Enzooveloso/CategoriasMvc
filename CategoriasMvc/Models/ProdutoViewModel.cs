@@ -10,7 +10,7 @@ public class ProdutoViewModel
     [Required(ErrorMessage ="A descrição doo prooduto é obrigatoria")]
     public string? Descricao { get; set; }
     [Required(ErrorMessage ="Informe o precoo do produto")]
-    public decimal Precoo { get; set; }
+    public decimal Preco { get; set; }
     [Required(ErrorMessage ="Informe o caminho da imagem do produto")]
     [Display(Name = "Caminho da imagem")]
     public string? ImagemUrl {  get; set; }

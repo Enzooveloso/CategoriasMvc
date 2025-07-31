@@ -6,16 +6,16 @@ namespace CategoriasMvc.Controllers;
 
 public class CategoriasController : Controller
 {
-    private readonly ICategoriaService _catagoriaService;
+    private readonly ICategoriaService _categoriaService;
 
-    public CategoriasController(ICategoriaService catagoriaService)
+    public CategoriasController(ICategoriaService categoriaService)
     {
-        _catagoriaService = catagoriaService;
+        _categoriaService = categoriaService;
     }
 
     public async Task<ActionResult<IEnumerable<CategoriaViewModel>>> Index()
     {
-        var result = await _catagoriaService.GetCategorias();
+        var result = await _categoriaService.GetCategorias();
 
         if (result is null)
             return View("Error");
@@ -32,7 +32,7 @@ public class CategoriasController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _catagoriaService.CriaCategoria(categoriaVM);
+            var result = await _categoriaService.CriaCategoria(categoriaVM);
 
             if (result != null)
                 return RedirectToAction(nameof(Index));
@@ -45,7 +45,7 @@ public class CategoriasController : Controller
     [HttpGet]
     public async Task<IActionResult> AtualizarCategoria(int id)
     {
-        var result = await _catagoriaService.GetCategoriaPorId(id);
+        var result = await _categoriaService.GetCategoriaPorId(id);
 
         if( result is null)
         {
@@ -58,7 +58,7 @@ public class CategoriasController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _catagoriaService.AtualizaCategoria(id, categoriaVM);
+            var result = await _categoriaService.AtualizaCategoria(id, categoriaVM);
 
             if (result)
             {
@@ -70,7 +70,7 @@ public class CategoriasController : Controller
     [HttpGet]
     public async Task<IActionResult> DeletarCategoria(int id)
     {
-        var result = _catagoriaService.DeletaCategoria(id);
+        var result = _categoriaService.DeletaCategoria(id);
         if(result is null)
         {
             return View("Error");
@@ -81,7 +81,7 @@ public class CategoriasController : Controller
     [HttpPost(), ActionName("DeletarCategoria")]
     public async Task<IActionResult> DeletaCategoria(int id)
     {
-        var result = await _catagoriaService.DeletaCategoria(id);
+        var result = await _categoriaService.DeletaCategoria(id);
         if(result)
         {
             return RedirectToAction(nameof(Index));
