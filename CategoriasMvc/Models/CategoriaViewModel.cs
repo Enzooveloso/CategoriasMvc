@@ -11,5 +11,5 @@ public class CategoriaViewModel
     [Required]
     [Display(Name = "Imagem")]
 
-    public string? imageUrl { get; set; }
+    public string? imagemUrl { get; set; }
 }
